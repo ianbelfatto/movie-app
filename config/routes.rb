@@ -4,4 +4,9 @@ Rails.application.routes.draw do
 get "/actor", controller: "actors", action: "single_actor"
 get "/all_movies", controller: "movies", action: "all_movies"
 get "/one_movie", controller: "movies", action: "one_movie"
+
+get "/query_actor", controller: "actors", action: "query_actor"
+get "/url_actor/:first_name", controller: "actors", action: "query_actor"
+
+post "/body_actor", controller: "actors", action: "body_actor"
 end
