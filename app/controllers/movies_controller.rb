@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
+  # before_action :authenticate_admin, except: [:index, :show]
   def index
     all_movies = Movie.all
     # all_movies = Movie.all
@@ -12,8 +12,8 @@ class MoviesController < ApplicationController
       title: params[:title],
       year: params[:year],
       plot: params[:plot],
-      director: params[:director],
-      english: params[:english]
+      # director: params[:director],
+      # english: params[:english]
     )
     if movie.save
       render json: movie
@@ -24,9 +24,7 @@ class MoviesController < ApplicationController
 
   def show
     one_movie = Movie.find_by(id: params[:id])
-    render json: {
-      message: one_movie
-    }
+    render json: one_movie
   end
 
   def update
